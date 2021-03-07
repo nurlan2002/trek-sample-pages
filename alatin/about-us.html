@@ -1,0 +1,547 @@
+<style>
+  .contentbox-header {
+    display: none;
+  }
+  :root {
+    --tds-base-line_height: 21px;
+    --tds-base-line_height: var(--tds-line-height--30);
+    --tds-base-font_size: 14px;
+    --tds-base-font_size: var(--tds-font-size--30);
+    --tds-base-font_family: "HeiT ASC Traditional Chinese", "M Hei PRC W45",
+      "AXIS Font Japanese W55", "FB New Gothic", "Gotham Book", system,
+      sans-serif;
+    --tds-base-font_family: var(--tds-font-combined);
+  }
+  @font-face {
+    font-family: system;
+    font-style: normal;
+    font-weight: 300;
+    src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"),
+      local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"),
+      local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+  }
+  * {
+    box-sizing: border-box;
+  }
+  ol {
+    list-style-type: none;
+  }
+  @media (min-width: 960px) {
+    .mycontainer {
+      max-width: container;
+      width: auto;
+    }
+    [id="system_messages"],
+    main {
+      width: auto;
+    }
+    header.main {
+      width: auto;
+    }
+  }
+  @media (min-width: 0) and (max-width: 639px) {
+    .mycontainer {
+      position: relative;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  @media (min-width: 640px) {
+    .mycontainer {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+      position: relative;
+      width: auto;
+    }
+    header.main {
+      min-width: 940px;
+    }
+    header .main {
+      padding-bottom: 11px;
+    }
+  }
+  @media (min-width: 640px) and (max-width: 960px) {
+    .mycontainer {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 984px;
+      position: relative;
+    }
+  }
+  .section-sub-nav {
+    position: relative;
+  }
+  .section-sub-nav::after,
+  .section-sub-nav::before {
+    content: "";
+    display: table;
+  }
+  .section-sub-nav::after {
+    clear: both;
+  }
+  .section-sub-nav .mycontainer {
+    position: relative;
+  }
+  .section-sub-nav .section-title {
+    border-bottom: 1px solid #f4f4f4;
+    color: #000;
+    font-size: 30px;
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    padding-top: 0;
+    position: relative;
+    top: 0;
+    font-weight: 400;
+    margin-top: 0;
+  }
+  @media (min-width: 0) and (max-width: 639px) {
+    .section-sub-nav .section-title {
+      border-bottom: 0;
+      font-size: 24px;
+    }
+  }
+  .section-sub-nav .section-title a {
+    color: #000;
+  }
+  .section-sub-nav .sub-nav {
+    clear: both;
+    position: absolute;
+    right: 20px;
+    top: 9px;
+  }
+  [dir="rtl"] .section-sub-nav .sub-nav {
+    right: auto;
+    left: 20px;
+  }
+  .section-sub-nav .sub-nav .nav-item {
+    display: block;
+    float: left;
+    margin: 0 0 0 20px;
+  }
+  .section-sub-nav .sub-nav .nav-item:first-child {
+    margin-left: 0;
+  }
+  .section-sub-nav .sub-nav .nav-selected .nav-link {
+    opacity: 0.5;
+  }
+  .section-sub-nav .sub-nav .nav-selected .nav-item {
+    display: block;
+    float: left;
+    margin: 0 0 0 20px;
+  }
+  .section-sub-nav .sub-nav .nav-selected .nav-item:first-child {
+    margin-left: 0;
+  }
+  .section-sub-nav .sub-nav .nav-link {
+    color: #393c41;
+    font-size: 13px;
+    text-decoration: none;
+    box-shadow: none;
+  }
+  @media (min-width: 0) and (max-width: 639px) {
+    .section-sub-nav .sub-nav {
+      display: none;
+    }
+  }
+  @media (min-width: 0) and (max-width: 639px) {
+    .section-sub-nav {
+      margin-top: 33px;
+    }
+    .section-sub-nav .sub-nav {
+      display: none;
+    }
+    .section-sub-nav .section-title {
+      margin-bottom: 27px;
+    }
+    .page-about .section-sub-nav .section-title {
+      padding-bottom: 18px;
+    }
+  }
+  @media (min-width: 0) and (max-width: 639px) {
+    .content-constrain,
+    [id="page"] {
+      height: auto;
+      min-height: 0;
+      margin-bottom: 0;
+    }
+  }
+  .content-constrain {
+    position: relative;
+  }
+  .list-link {
+    font-family: Gotham Book, "M Hei PRC W45", "M Hei HK W42", "M Hei HK W40",
+      HelveticaNeue-Regular, "Helvetica Neue Regular", "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 21px;
+    clear: both;
+    cursor: pointer;
+    color: #b74134;
+  }
+  .list-link a {
+    color: #b74134;
+  }
+  .list-link a:hover {
+    color: #ed4e3b;
+    color: var(--tds-color--red20);
+  }
+  .list-link:hover {
+    color: #ed4e3b;
+    color: var(--tds-color--red20);
+  }
+  :root {
+    --tds-animate--move: transform 900ms cubic-bezier(0.75, 0, 0, 1);
+    --tds-animate--color: background-color 450ms
+        cubic-bezier(0.5, 0.25, 0.25, 0.75),
+      color 450ms cubic-bezier(0.5, 0.25, 0.25, 0.75),
+      opacity 450ms cubic-bezier(0.5, 0.25, 0.25, 0.75);
+    --tds-animate--focus: border 250ms cubic-bezier(0.5, 0.25, 0.25, 0.75),
+      box-shadow 250ms cubic-bezier(0.5, 0.25, 0.25, 0.75),
+      color 250ms cubic-bezier(0.5, 0.25, 0.25, 0.75),
+      opacity 250ms cubic-bezier(0.5, 0.25, 0.25, 0.75);
+    --tds-animate-all--long: all 900ms cubic-bezier(0.75, 0, 0, 1),
+      background-color 900ms cubic-bezier(0.5, 0.25, 0.25, 0.75),
+      color 900ms cubic-bezier(0.5, 0.25, 0.25, 0.75),
+      opacity 900ms cubic-bezier(0.5, 0.25, 0.25, 0.75);
+    --tds-border-style: solid;
+    --tds-border-radius: 4px;
+    --tds-border-radius--forms: 20px;
+    --tds-border-radius--pill: 100px;
+    --tds-border-width--hairline: 0.5px;
+    --tds-border-width--small: 1px;
+    --tds-border-width--medium: 2px;
+    --tds-border-width--large: 3px;
+    --tds-color--black: #000;
+    --tds-color--grey10: #171a20;
+    --tds-color--grey15: #222;
+    --tds-color--grey20: #393c41;
+    --tds-color--grey25: #444;
+    --tds-color--grey30: #5c5e62;
+    --tds-color--grey35: #757575;
+    --tds-color--grey40: #a2a3a5;
+    --tds-color--grey50: #d0d1d2;
+    --tds-color--grey60: #eee;
+    --tds-color--grey70: #f4f4f4;
+    --tds-color--white: #fff;
+    --tds-color--blue30: #3e6ae1;
+    --tds-color--blue20: #3457b1;
+    --tds-color--blue10: #2e4994;
+    --tds-color--red10: #b74134;
+    --tds-color--red20: #ed4e3b;
+    --tds-color--green10: #12bb00;
+    --tds-color--green20: #02e359;
+    --tds-color--yellow: #fbb01b;
+    --tds-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
+    --tds-font-size--10: 10px;
+    --tds-font-size--20: 12px;
+    --tds-font-size--30: 14px;
+    --tds-font-size--40: 17px;
+    --tds-font-size--50: 20px;
+    --tds-font-size--55: 23px;
+    --tds-font-size--60: 24px;
+    --tds-font-size--70: 28px;
+    --tds-font-size--75: 34px;
+    --tds-font-size--80: 40px;
+    --tds-size: 8px;
+    --tds-size--half: 4px;
+    --tds-size--1x: 8px;
+    --tds-size--2x: 16px;
+    --tds-size--3x: 24px;
+    --tds-size--4x: 32px;
+    --tds-size--5x: 40px;
+    --tds-size--6x: 48px;
+    --tds-size--7x: 56px;
+    --tds-size--8x: 64px;
+    --tds-size--9x: 72px;
+    --tds-size--10x: 80px;
+    --tds-size--11x: 88px;
+    --tds-size--12x: 96px;
+    --tds-size--13x: 104px;
+  }
+  h1.section-title {
+    padding-top: 0;
+  }
+  nav.sub-nav a {
+    box-shadow: none;
+  }
+  .section-title {
+    padding-top: 32px;
+    padding-top: var(--tds-size--4x);
+    padding-bottom: 8px;
+    font-weight: 600 !important;
+    color: #171a20;
+    color: var(--tds-color--grey10);
+    transition: font 0.1s ease-in-out;
+    display: block;
+    margin: 0;
+  }
+  @media (min-width: 600px) {
+    .section-title {
+      letter-spacing: -0.5px;
+      font-size: 28px;
+      font-size: var(--tds-font-size--70);
+      line-height: 36px;
+      line-height: var(--tds-line-height--70);
+    }
+  }
+  .section-contact-list {
+    margin: 0 0 40px;
+    font-size: 15px;
+  }
+  .section-contact-list::after,
+  .section-contact-list::before {
+    content: "";
+    display: table;
+  }
+  .section-contact-list::after {
+    clear: both;
+  }
+  .section-contact-list a {
+    color: #393c41;
+    color: var(--tds-color--grey20);
+    text-decoration: none;
+    box-shadow: 0 1px 0 0 currentColor;
+    box-shadow: 0 var(--tds-border-width--small) 0 0 currentColor;
+  }
+  .section-contact-list a:hover {
+    color: #000;
+    color: var(--tds-color--black);
+    transition: box-shadow 250ms cubic-bezier(0.5, 0.25, 0.25, 0.75),
+      color 250ms cubic-bezier(0.5, 0.25, 0.25, 0.75);
+    box-shadow: 0 2px 0 0 currentColor;
+    box-shadow: 0 var(--tds-border-width--medium) 0 0 currentColor;
+  }
+  .section-contact-list a:hover {
+    box-shadow: 0 2px 0 0 currentColor;
+    box-shadow: 0 var(--tds-border-width--medium) 0 0 currentColor;
+  }
+  .section-contact-list p {
+    padding-top: 0;
+  }
+  .section-contact-list h3 {
+    padding-top: 0;
+  }
+  .section-contact-list .mycontainer {
+    padding: 0;
+  }
+  .section-contact-list .column {
+    width: 54%;
+    float: left;
+    margin-right: 1.69492%;
+  }
+  .section-contact-list .column.last {
+    float: right;
+    margin-right: 0;
+  }
+  .section-contact-list .section-title {
+    font-family: "Gotham Medium", system, sans-serif;
+    font-family: var(--tds-fonts-combined--medium);
+    font-size: 16px;
+  }
+  .section-contact-list p {
+    margin: 0;
+  }
+  .section-contact-list .vcard {
+    color: #5c5e62;
+    color: var(--tds-color--grey30);
+    font-style: normal;
+    margin-bottom: 30px;
+  }
+  .fn {
+    line-height: 25px;
+    font-size: 18px !important;
+    color: #171a21;
+    font-weight: 600 !important;
+  }
+  @media (min-width: 0) and (max-width: 639px) {
+    .section-contact-list {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .section-contact-list .section-title {
+      line-height: 25px;
+    }
+    .section-contact-list .column {
+      width: 100% !important;
+      clear: both;
+      float: none;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .section-contact-list .column.last {
+      width: 100%;
+      clear: both;
+      float: none;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .section-contact-list .press-contacts .press-contacts-title {
+      margin: 0 0 10px;
+    }
+    .section-contact-list .press-contacts .vcard {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+  }
+</style>
+<div id="page" style="font-family: 'Open Sans', sans-serif; font-weight: 400">
+  <div class="content-constrain">
+    <div>
+      <div>
+        <main role="main">
+          <div class="panel-panel">
+            <div class="panel-pane pane-page-content">
+              <div class="pane-content">
+                <div class="panel-display">
+                  <section id="article_content" class="panel-panel">
+                    <div class="panel-pane pane-custom pane-1">
+                      <div class="pane-content">
+                        <header
+                          class="section-sub-nav section-about-header"
+                          style="margin-top: 40px"
+                        >
+                          <div class="mycontainer">
+                            <h1 class="section-title" style="margin-top: 25px">
+                              <img
+                                src="/class/INNOVAEditor/assets/logo.png"
+                                style="
+                                  margin-top: -30px;
+                                  height: 60px;
+                                  width: auto;
+                                "
+                              />
+                            </h1>
+                            <nav
+                              class="sub-nav about-us-nav"
+                              style="margin-top: -12px"
+                            >
+                              <ol class="nav-block">
+                                <li class="nav-item nav-selected">
+                                  <a class="nav-link">Hakkımızda</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a
+                                    href="https://www.alatin.com.tr/sayfa/iletisim"
+                                    class="nav-link"
+                                    >İletişim</a
+                                  >
+                                </li>
+                                <li class="nav-item">
+                                  <a
+                                    href="https://www.alatin.com.tr/sayfa/bayilerimiz"
+                                    class="nav-link"
+                                    >Bayilerimiz</a
+                                  >
+                                </li>
+                                <li class="nav-item">
+                                  <a
+                                    href="https://www.alatin.com.tr/sayfa/omur-boyu-garanti"
+                                    class="nav-link"
+                                    >Müşteri İlişkileri</a
+                                  >
+                                </li>
+                                <li class="nav-item">
+                                  <a
+                                    href="https://www.alatin.com.tr/sayfa/retul"
+                                    target="_blank"
+                                    class="nav-link"
+                                    >RETÜL</a
+                                  >
+                                </li>
+                                <li class="nav-item">
+                                  <a
+                                    href="https://www.alatin.com.tr/sayfa/footbalance"
+                                    target="_blank"
+                                    class="nav-link"
+                                    >FOOTBALANCE</a
+                                  >
+                                </li>
+                              </ol>
+                            </nav>
+                          </div>
+                        </header>
+
+                        <div class="mycontainer">
+                          <section class="section-contact-list">
+                            <div class="column" style="width: 40%">
+                              <div class="vcard">
+                                <h3 class="section-title fn">
+                                  1959 yılında Karaköy, Kuledibi İstanbul’da ilk
+                                  mağazamızı açtığımızdan beri hedefimiz
+                                  değişmedi: "Müşterilerimizi en iyi ürünlerle
+                                  buluşturup, bisikletten keyif almalarını
+                                  sağlamak”.
+                                </h3>
+                                <p>
+                                  Bahar Hırdavat olarak birkaç yıl içinde Çin ve
+                                  Hindistan’dan ithalata başlayıp, hem el
+                                  aletleri hem de bisiklet satışı yapıyorduk.
+                                  60’ların ortasına doğru sadece bisiklet satma
+                                  kararı alınmıştı. İşte bu kararın sonucunda
+                                  aradan geçen 61 senelik birikimle Bahar
+                                  Hırdavat, günümüze kadar yaşanan süreçte Trek
+                                  Türkiye’nin yüzü oldu.
+                                  <br />
+                                  <br />
+                                  TREK USA ile yollarımız 2000 yılında kesişti.
+                                  Trek 'en iyi bisikleti yapmak’ misyonuyla yola
+                                  çıkmış Amerika menşeili bir bisiklet
+                                  üreticisi.
+                                  <br />
+                                  <br />
+                                  Trek Türkiye yetkili distribütörlüğünü -Alatin
+                                  Bisiklet- olarak aldığımızda misyon aynıydı.
+                                  En iyi ürünleri müşterimizle buluşturup, en
+                                  iyi hizmet anlayışıyla, Türkiye’deki bisiklet
+                                  bilincini arttırıp, bisikletten keyif almanızı
+                                  sağlamak. Size bir bisiklet vermekten çok, bir
+                                  hayat tarzı kazandırmayı ve size keyif verecek
+                                  bu deneyimi hayatınızın bir parçası haline
+                                  getirmeyi hedefliyoruz.
+                                  <br />
+                                  <br />
+                                  Şu anda İstanbul’da 3 mağazamız ve Türkiye
+                                  genelindeki bayilerimizle sizleri yine en iyi
+                                  hizmet ve ürünlerle buluşturmaya devam
+                                  ediyoruz.
+                                </p>
+                              </div>
+                            </div>
+
+                            <div class="column last press-contacts">
+                              <!--
+															<img src="/class/INNOVAEditor/assets/team.jpeg" />
+															-->
+
+                              <iframe
+                                width="100%"
+                                height="500"
+                                src="https://www.youtube.com/embed/hl7ZEbQ0knM"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen=""
+                              ></iframe>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</div>
